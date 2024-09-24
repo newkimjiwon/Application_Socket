@@ -1,5 +1,6 @@
 import socket
 import threading
+import time
 
 # 두 명의 사용자가 모두 연결될 때까지 기다리도록 설정
 user_ready = False
@@ -30,6 +31,7 @@ def start_client():
             client_socket.send(message.encode('utf-8'))
         else:
             print("다른 사용자가 연결될 때까지 기다리는 중...")
+            time.sleep(1)
 
 if __name__ == "__main__":
     start_client()
