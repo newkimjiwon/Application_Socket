@@ -25,7 +25,9 @@ def receive_messages(client_socket):
                         user_ready = True
                         print("두 명의 사용자가 모두 연결되었습니다.")
                     else:
+                        print()
                         print(f"서버로부터 수신된 상태 정보:\n{message}")
+                        print("캐릭터의 행동을 입력하세요 (move: 'x,y', attack: 'target_name'): ", end = "")
         except Exception as e:
             print(f"에러 발생: {e}")
             break

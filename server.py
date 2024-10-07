@@ -1,6 +1,7 @@
 import socket
 import threading
 import struct
+import time
 
 # 클라이언트 상태 저장을 위한 리스트
 clients = []
@@ -45,6 +46,8 @@ def handle_client(client_socket, client_address):
                             print(f"{target_name}의 체력이 {target_health}으로 감소했습니다.")
                         break
 
+            # 서버 애플리케이션은 20ms 주기로 연결된 모든 클라이언트 애플리케이션에게 모든 사용자들의 캐릭터 상태 정보를 제공
+            time.sleep(0.02)
             # 상태 업데이트 메시지를 모든 클라이언트에게 전송
             broadcast_state_update()
         except Exception as e:
